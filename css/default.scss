@@ -1,0 +1,254 @@
+$desktop: 1000px;
+
+*{box-sizing:border-box;}
+	body{
+		background-color: #091015;
+		/*https://farm8.staticflickr.com/7632/16256868034_f9482916b8_k.jpg
+		background-image: url('https://farm3.staticflickr.com/2894/13280225475_714887e866_k.jpg');		
+		background-size: cover;		    
+    	background-position: center;*/
+    	height: 100vh;
+	}
+	
+	button{
+		border:0;
+		background-color:transparent;
+		
+		&:focus{
+			outline:0;
+		}
+	}	
+	
+	.player{						
+		background-color: #000;				
+		
+		@media screen and (min-width: $desktop){
+			width: 60%;
+			max-width:800px;
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate3d(-50%,-50%,0);
+			/*box-shadow: 0 40px 100px rgba(10, 79, 103, 0.38);
+			box-shadow: 0 0 100px rgba(50, 127, 177, 0.16) inset;*/
+		    border-radius: 5px;
+		    overflow: hidden;
+
+			&:after{
+				content:"";
+				display:block;
+				padding-top:50vh;
+			}
+		}
+	}	
+	
+	.btn-play-wrapper{
+		width: 100%;
+		height: 120px;
+		background-color: #2980b9;
+		text-align: center;		
+		
+		@media screen and(min-width: $desktop){
+			cursor: pointer;	
+			opacity:.8;	
+			transition: opacity 0.2s ease;		
+			
+			&:hover{
+				opacity:1 !important;
+			}
+		}
+	}
+	
+	.btn-play,
+	.paused,
+	.paused:after{
+		display: inline-block;
+	}
+	
+	.btn-play{	
+		width: 0px;
+		height: 0px;
+		border: 50px solid transparent;
+		border-right:0;
+		border-left: 100px solid #fff;	
+	}
+		
+	.paused{
+		position: relative;
+		left: -25px;
+	}
+	
+	.paused,
+	.paused:after{
+		height: 100px;
+		border: 0;
+		background-color: #FFF;
+		width: 25px;		
+	}
+	
+	.paused:after{
+		content: "";
+		display: block;
+		margin-left: 150%;
+		height: 100%;
+		width: 100%;
+		background-color: #fff;
+	}
+	
+	.playlist{	
+		overflow:hidden;		
+		background-color: #02050C;
+		width:100%;
+		
+		@media screen and (min-width: $desktop){
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate3D(-50%, -50%, 0);
+			width:50%;
+		}
+		
+		.playlist-slider{
+			width:10000px;
+		}
+	}
+	
+	.song{	
+		max-width:92px;	
+		width:50%;
+		float:left;
+		margin: 0 20px 0 0;
+		background-repeat:no-repeat;
+		background-size:contain;
+		position:relative;
+		
+		&:after{
+			content:"";
+			display:block;
+			padding-top:100%;
+		}
+	}
+
+	.song-info{
+		/*background: linear-gradient(transparent, #000);  Standard syntax */
+		padding:10px;
+		width:100%;
+		bottom:0;
+		color:#fff;
+		
+		h3{
+			margin:0;
+		}
+	}
+
+/******************************
+ * TRACK UP VOTE / DOWN VOTE 
+*******************************/ 	
+	.vote-song{
+		position: absolute;
+		top:0;
+		left:0;
+		width:100%;
+		opacity:0;
+		transition: opacity 0.2s ease-out;
+		
+		&:hover{
+			opacity:1;
+		}
+	}
+	.vote-song-up,
+	.vote-song-down{
+		width: 100%;
+		background-color: green;
+		opacity: .4;
+		cursor: pointer;
+		position: relative;
+		
+		&:after{
+			content:"";
+			display:block;
+			padding-top:50%;
+		}
+		
+		&:hover{
+			opacity:.85;
+		}
+		
+		div{
+			width: 0;
+			height: 0;
+			border-left: 50px solid transparent;
+			border-right: 50px solid transparent;
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate3d(-50%,-50%,0);
+		}
+	}
+	.vote-song-down{
+		background-color:red;		
+	}
+	.vote-song-up div{
+		border-bottom: 50px solid white;
+	}
+	.vote-song-down div{
+		border-top: 50px solid white;
+	}
+	
+	.playlist-controls{
+		background-color: #011E31;		
+		width:100%;
+		
+		@media screen and (min-width: $desktop){
+			position:absolute;
+			bottom:0;	
+			left:0;		
+		}
+		
+		.btn-skip-song{
+			width: 100%;
+			display: block;
+			padding: 50px;
+			color: #fff;
+			font-size: 2em;
+			transform: scale(.6);
+			transition: transform 0.15s ease;
+		
+			&:hover{
+				transform:scale(1);
+			}
+		}
+	}
+/******************************
+ * Track Status
+ ******************************/
+	.track-status{	
+		background-color: #05273E;	
+		position: relative;
+		width:100%;		
+		
+		@media screen and(min-width: $desktop){
+
+		}
+	
+		#currentTime,
+		#trackDuration{
+			position:absolute;
+			top:50%;
+			transform: translateY(-50%);
+			left:10px;
+			color:#fff;
+		}
+		#trackDuration{
+			left: auto;
+			right:10px;
+		}
+		
+		#positionIndicator{
+			height: 5vh;
+			background-color: #001523;
+			width: 0;
+			transition: width 0.5s ease;	
+			max-width: 100%;		
+		}
+	}

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>	
+<link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/3.0.3/normalize.min.css" rel="stylesheet">
+<link href="css/build/default.css" rel="stylesheet">
+</head>
+<body>
+	<div class="header">
+	</div>
+	
+	
+	<div class="player">
+		<audio id="auidoPlayer" src="" autoplay>
+			<p>Your browser does not support the audio element</p>
+		</audio>
+		
+		<button id="btnPlay" class="btn-play-wrapper" type="button">
+			<div id="btnPlayIcon" class="btn-play paused"></div>
+		</button>
+		
+		<div class="track-status">
+			<div id="currentTime"></div>
+			<div id="trackDuration"></div>
+			<div id="positionIndicator"></div>
+		</div>
+		
+		<div class="playlist">
+				<div class="song" id="currentSong">
+					<!--
+					<div class="vote-song">
+						<div class="vote-song-up"><div></div></div>
+						<div class="vote-song-down"><div></div></div>
+					</div>
+					-->
+				</div>			
+				<div class="song-info">
+					<h3>artist: <span id="artist_name"></span></h3>	
+					<p>track: <span id="track_title"></span></p>
+				</div>
+		</div>
+		
+		<div class="playlist-controls">
+			<button id="btnSkipTrack" class="btn-skip-song">Skip</button>
+		</div>
+	</div>
+	<script src="http://connect.soundcloud.com/sdk-2.0.0.js"></script>
+	<script src="js/default.js"></script>	
+</body>
+</html>
