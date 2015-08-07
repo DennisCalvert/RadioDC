@@ -1,3 +1,3 @@
-#jNav 
+#Radio DC 
 
-jNav builds in-page navigation based on headers in your content.# RadioDC 
+Vanilla JS, SCSS and a little HTML plays all the stuff I've uploaded to Sound Cloud.
