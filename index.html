@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-<head>	
+<head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Radio DC</title>
@@ -13,24 +13,24 @@
 		<audio id="auidoPlayer" src="#" autoplay></audio>
 		<button id="btnPlay" class="btn-play-wrapper" type="button">
 			<span id="btnPlayIcon" class="btn-play paused"></span>
-		</button>		
+		</button>
 		<div class="track-status">
 			<div id="currentTime"></div>
 			<div id="trackDuration"></div>
 			<div id="positionIndicator"></div>
-		</div>		
+		</div>
 		<div class="playlist">
-				<div class="song" id="currentSong"></div>			
+				<div class="song" id="currentSong"></div>
 				<div class="song-info">
-					<h3>artist: <span id="artist_name"></span></h3>	
+					<h3>artist: <span id="artist_name"></span></h3>
 					<p>track: <span id="track_title"></span></p>
 				</div>
-		</div>		
+		</div>
 		<div class="playlist-controls">
 			<button id="btnSkipTrack" class="btn-skip-song">Skip</button>
 		</div>
 	</div>
 	<script src="http://connect.soundcloud.com/sdk-2.0.0.js"></script>
-	<script src="js/default.js"></script>	
+	<script src="js/build/production.min.js"></script>
 </body>
 </html>

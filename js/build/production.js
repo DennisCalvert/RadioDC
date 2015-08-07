@@ -26,15 +26,14 @@ var animate = {
 		ScClientID = "9eeea9ea6c011d7ce72495df6ebf6dac";
 
 //Player Functionality
-	function formatPlayTime(seconds){
-		var minutes = Math.floor(seconds / 60);
-		var seconds = seconds - minutes * 60;
+	function formatPlayTime(time){
+		var minutes = Math.floor(time / 60),
+			seconds = time - minutes * 60;
 		return minutes + ':' + seconds;
 	}
 
     function togglePlay () {
         (audio.paused) ? audio.play() : audio.pause();
-
         document.getElementById('btnPlayIcon').classList.toggle('paused');
     	animate.zoomFade(document.getElementById('btnPlayIcon'));    	
     }
@@ -42,21 +41,22 @@ var animate = {
     function updateStatus(){
         var currentTime = audio.currentTime,
 			duration = audio.duration;        
-
         document.getElementById('trackDuration').innerHTML = formatPlayTime(Math.floor(duration));
         document.getElementById('currentTime').innerHTML = formatPlayTime(Math.floor(currentTime));
         document.getElementById('positionIndicator').style.width = ((100 / duration) * currentTime) + '%';
     }
 
     function startNextTrack(){
-    	if(playListIndex >= playList.length) playListIndex = 0;
+    	if(playListIndex >= playList.length){
+    		playListIndex = 0;	
+    	} 
     	var track = playList[playListIndex];
     	audio.src = track.uri + '/stream/?client_id=' + ScClientID;     	
     	document.getElementById('track_title').innerHTML = track.title;
     	animate.zoomFade(document.getElementById('currentSong'));
-    	document.getElementById('currentSong').style.backgroundImage = "url('"+ track.artwork_url +"')"
+    	document.getElementById('currentSong').style.backgroundImage = "url('"+ track.artwork_url +"')";
     	document.getElementById('artist_name').innerHTML = track.user.username;    	    	
-    	playListIndex++;
+    	playListIndex += 1;
     }    
 
 //Initialize Sound Cloud
@@ -66,8 +66,7 @@ var animate = {
 
 	SC.get("https://api.soundcloud.com/users/9962102/tracks", function (tracks)
 	{
-		playList = tracks;
-		console.log(playList);
+		playList = tracks;		
 		startNextTrack();
 	});
 
